@@ -32,6 +32,7 @@ dcmsmaps(csvfile = "~/Documents/mydata.csv", outfile = "~/Documents/mymap.eps", 
 * `mincol` is the hexidecimal colour to set the lower end of your map's scale
 * `maxcol` is the hexidecimal colour to set the upper end of your map's scale
 * set `england` to `TRUE` if your map is only for England, `FALSE` for the whole UK
+* set `englandwales` to `TRUE` if your map is only for England and Wales, `FALSE` for the whole UK
 * set `labels` to `FALSE` to turn map labels off
 * set `scale` to `FALSE` to turn the colour scale legend off
 * set `pound` to `TRUE` if you want the data displayed on your map to be prefixed with a £ sign, e.g., if you're plotting GVA per region.

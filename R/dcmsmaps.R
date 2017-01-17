@@ -1,17 +1,10 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Cmd + Shift + B'
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
+#DCMS Map Maker
+
+##Intro
+
+#This package is used to make maps for DCMS statistical publications. It combines input data
+#in a standard format with an Ordnance Survey boundary line shapefile distributed under the
+#Open Government License.
 
 dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,england=FALSE,englandwales=FALSE,labels=TRUE,pound=FALSE) {
 
@@ -64,8 +57,8 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
   # Open to EPS (or PNG) to plot to
   setEPS()
   postscript(outfile,width=11.69,height=8.27)
-  #dev.off()
-  #pdf(outfile,width=11.69,height=8.27)
+  dev.off()
+  pdf(outfile,width=11.69,height=8.27)
   plot(area2,col=colours,border=0)
 
   fsize=.75
@@ -73,7 +66,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
   # Make Key
   if(scale==TRUE){
 
-    if(england==FALSE){# || englandwales==FALSE){
+    if(england==FALSE && englandwales==FALSE){
 
       x=c(600000,700000,700000,600000)
       y=c(620000,620000,630000,630000)
@@ -90,7 +83,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
       text(710000,840000, paste0(pounds,prettyNum(max(area2@data$mapdata),big.mark=',')),adj=0,cex=fsize,col="black")
     }
 
-    if(england==TRUE){ #|| englandwales==TRUE){
+    if(england==TRUE || englandwales==TRUE){
       x=c(50000,150000,150000,50000)
       y=c(420000,420000,430000,430000)
 
@@ -176,7 +169,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
          paste0(area2@data$NAME[9],"\n",pounds,formatC(area2@data$mapdata[9],big.mark=',',digits=digitsl,format="f")),
          adj=0,cex=fsize,col="black")
 
-    if(england==FALSE){ #|| englandwales==FALSE){
+    if(england==FALSE && englandwales==FALSE){
       #Wales
       polygon(c(140000,290000),c(220000,220000),border=maincol)
       text(135000,220000,
@@ -196,15 +189,15 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
            adj=0,cex=fsize,col="black")
     }
 
-    #if(englandwales==TRUE){
+    if(englandwales==TRUE){
       #Wales
-    #  polygon(c(140000,290000),c(220000,220000),border=maincol)
-      #text(135000,220000,
-      #     paste0(area2@data[area2$NATION=='Wales',]$NAME,"\n",pounds,format(area2@data[area2$NAME=='Wales',]$mapdata,nsmall=1)),
-      #     adj=1,cex=fsize,col="black")
-    #}
+      polygon(c(140000,290000),c(220000,220000),border=maincol)
+      text(135000,220000,
+           paste0(area2@data[area2@data$NATION=='Wales',]$NAME,"\n",pounds,format(area2@data[area2@data$NATION=='Wales',]$mapdata,nsmall=1)),
+           adj=1,cex=fsize,col="black")
+    }
   }
 
   dev.off()
-  #return(area2)
+  return(area2)
 }
