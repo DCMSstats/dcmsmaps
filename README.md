@@ -9,7 +9,7 @@ output: html_document
 
 ##Intro
 
-This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with and Ordnance Survey boundary line shapefile distributed under the Open Government License.
+This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with an Ordnance Survey boundary line shapefile distributed under the Open Government License.
 
 ##Installation
 
@@ -34,8 +34,7 @@ dcmsmaps(csvfile = "~/Documents/mydata.csv", outfile = "~/Documents/mymap.eps", 
 * set `england` to `TRUE` if your map is only for England, `FALSE` for the whole UK
 * set `labels` to `FALSE` to turn map labels off
 * set `scale` to `FALSE` to turn the colour scale legend off
-* set `scale` to `TRUE` if you want the data displayed on your map to be prefixed with a £ sign, e.g., if you're plotting GVA per region.
-* set `pound` to `TRUE` if you want to labels to be prefixed with a £ sign
+* set `pound` to `TRUE` if you want the data displayed on your map to be prefixed with a £ sign, e.g., if you're plotting GVA per region.
 
 ### Input data
 
