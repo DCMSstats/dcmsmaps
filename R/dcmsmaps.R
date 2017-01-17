@@ -193,5 +193,5 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
   }
 
   dev.off()
-  return(area2)
+  #return(area2)
 }
