@@ -6,7 +6,7 @@
 #in a standard format with an Ordnance Survey boundary line shapefile distributed under the
 #Open Government License.
 
-dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,england=FALSE,englandwales=FALSE,labels=TRUE,pound=FALSE) {
+dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',scale=TRUE,england=FALSE,englandwales=FALSE,labels=TRUE,pound=FALSE) {
 
   # Read in files
   data(NUTS1)
