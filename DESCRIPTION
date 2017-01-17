@@ -7,3 +7,4 @@ Maintainer: Niall Goulding <niall.goulding@culture.gov.uk>
 Description: Used for making standard maps for DCMS statistical publications
 License: Open Government License
 LazyData: TRUE
+Imports: sp
