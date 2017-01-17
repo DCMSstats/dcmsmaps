@@ -54,11 +54,11 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
     colours[i]=rgb(red,grn,blu,maxColorValue=255)
   }
 
-  # Open to EPS (or PNG) to plot to
+  # Open to EPS to plot to
   setEPS()
   postscript(outfile,width=11.69,height=8.27)
-  dev.off()
-  pdf(outfile,width=11.69,height=8.27)
+  #dev.off()
+  #pdf(outfile,width=11.69,height=8.27)
   plot(area2,col=colours,border=0)
 
   fsize=.75
@@ -199,5 +199,5 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='',maxcol='',scale=TRUE,englan
   }
 
   dev.off()
-  return(area2)
+  #return(area2)
 }
