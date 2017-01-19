@@ -57,18 +57,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
 
   # Open to EPS to plot to
   setEPS()
-  postscript(outfile,width=11.69,height=8.27,colormodel="srgb")
-  #Different save method is needed for Windows and Mac
-  #if(Sys.info()['sysname']=="Windows"){
-  #  dev.off()
-  #  dev.new(width=11.69,height=8.27,units="in")
-  #}
-
-  #dev.off()
-  #pdf(outfile,width=11.69,height=8.27)
-  #for(j in 1:length(area2)){
-  #  plot(area2[j,],col=area2@data$colours[j],border=0)
-  #}
+  postscript(outfile,width=11.69,height=8.27)#,colormodel="srgb")
 
   plot(area2,col=area2@data$colours,border=0)
 
@@ -210,9 +199,6 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
     }
   }
 
-  #if(Sys.info()['sysname']=="Windows"){
-  #  savePlot(filename=outfile,type="eps",device=dev.cur(), restoreConsole=TRUE)
-  #}
   dev.off()
   return(area2)
 }
