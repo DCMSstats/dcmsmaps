@@ -58,11 +58,18 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
   # Open to EPS to plot to
   setEPS()
   postscript(outfile,width=11.69,height=8.27)
-  dev.off()
-  pdf(outfile,width=11.69,height=8.27)
+  #Different save method is needed for Windows and Mac
+  if(Sys.info()['sysname']=="Windows"){
+    dev.off()
+    savePlot(filename="~/Documents/DSprojects/mapmaker/sptest",type="eps",device=dev.cur(), restoreConsole=TRUE)
+  }
+
+  #dev.off()
+  #pdf(outfile,width=11.69,height=8.27)
   #for(j in 1:length(area2)){
   #  plot(area2[j,],col=area2@data$colours[j],border=0)
   #}
+
   plot(area2,col=area2@data$colours,border=0)
 
   fsize=.75
