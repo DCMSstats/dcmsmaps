@@ -210,6 +210,9 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
     }
   }
 
+  if(Sys.info()['sysname']=="Windows"){
+    savePlot(filename=outfile,type="eps",device=dev.cur(), restoreConsole=TRUE)
+  }
   dev.off()
   return(area2)
 }
