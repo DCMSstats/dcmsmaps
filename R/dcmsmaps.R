@@ -35,7 +35,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
 
   # Convert colours to RGB
   mincol=col2rgb(mincol, alpha = FALSE)
-  maxcol=col2rgb(mincol, alpha = FALSE)
+  maxcol=col2rgb(maxcol, alpha = FALSE)
   rmin=mincol[1]
   rmax=maxcol[1]
   gmin=mincol[2]
@@ -51,15 +51,19 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
     red=rmin+(rmax-rmin)*(area2@data$mapdata[i]-min(area2@data$mapdata))/max(area2@data$mapdata-min(area2@data$mapdata))
     blu=bmin+(bmax-bmin)*(area2@data$mapdata[i]-min(area2@data$mapdata))/max(area2@data$mapdata-min(area2@data$mapdata))
     grn=gmin+(gmax-gmin)*(area2@data$mapdata[i]-min(area2@data$mapdata))/max(area2@data$mapdata-min(area2@data$mapdata))
+    area2@data$colours[i]=rgb(red,grn,blu,maxColorValue=255)
     colours[i]=rgb(red,grn,blu,maxColorValue=255)
   }
 
   # Open to EPS to plot to
   setEPS()
   postscript(outfile,width=11.69,height=8.27)
-  #dev.off()
-  #pdf(outfile,width=11.69,height=8.27)
-  plot(area2,col=colours,border=0)
+  dev.off()
+  pdf(outfile,width=11.69,height=8.27)
+  #for(j in 1:length(area2)){
+  #  plot(area2[j,],col=area2@data$colours[j],border=0)
+  #}
+  plot(area2,col=area2@data$colours,border=0)
 
   fsize=.75
 
@@ -136,7 +140,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
     #North East
     polygon(c(470000,670000),c(440000,440000),border=maincol)
     text(675000,440000,
-         paste0(area2@data$NAME[4],"\n",pounds,formatC(area2@data$mapdata[4],big.mark=',',digits=digitsl,format="f")),
+         paste0(area2@data$NAME[9],"\n",pounds,formatC(area2@data$mapdata[9],big.mark=',',digits=digitsl,format="f")),
          adj=0,cex=fsize,col="black")
 
     #North West
@@ -166,7 +170,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
     #Yorkshire & The Humber
     polygon(c(410000,670000),c(580000,580000),border=maincol)
     text(675000,580000,
-         paste0(area2@data$NAME[9],"\n",pounds,formatC(area2@data$mapdata[9],big.mark=',',digits=digitsl,format="f")),
+         paste0(area2@data$NAME[4],"\n",pounds,formatC(area2@data$mapdata[4],big.mark=',',digits=digitsl,format="f")),
          adj=0,cex=fsize,col="black")
 
     if(england==FALSE && englandwales==FALSE){
@@ -199,5 +203,5 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
   }
 
   dev.off()
-  #return(area2)
+  return(area2)
 }
