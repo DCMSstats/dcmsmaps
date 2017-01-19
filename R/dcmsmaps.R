@@ -57,12 +57,18 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
 
   # Open to EPS to plot to
   setEPS()
-  postscript(outfile,width=11.69,height=8.27)#,colormodel="srgb")
+  postscript(paste0(outfile,".eps",width=11.69,height=8.27))
+  #Different save method is needed for Windows and Mac
+  if(Sys.info()['sysname']=="Windows"){
+    dev.off()
+    win.metafile(filename = paste0(outfile,".wmf"),width=11.69,height=8.27,units="in")
+  }
 
+  #Plot the polygons
   plot(area2,col=area2@data$colours,border=0)
 
+  #Sent font scaler
   fsize=.75
-
 
   # Make Key
   if(scale==TRUE){
