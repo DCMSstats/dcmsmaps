@@ -61,6 +61,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
   #Different save method is needed for Windows and Mac
   if(Sys.info()['sysname']=="Windows"){
     dev.off()
+    windows()
     savePlot(filename=outfile,type="eps",device=dev.cur(), restoreConsole=TRUE)
   }
 
