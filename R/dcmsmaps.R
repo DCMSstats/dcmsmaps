@@ -57,7 +57,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
 
   # Open to EPS to plot to
   setEPS()
-  postscript(outfile,width=11.69,height=8.27,colormodel="rgb")
+  postscript(outfile,width=11.69,height=8.27,colormodel="srgb")
   #Different save method is needed for Windows and Mac
   #if(Sys.info()['sysname']=="Windows"){
   #  dev.off()
