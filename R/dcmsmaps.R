@@ -61,8 +61,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
   #Different save method is needed for Windows and Mac
   if(Sys.info()['sysname']=="Windows"){
     dev.off()
-    dev.new(width=11.69,height=8.27)
-    savePlot(filename=outfile,type="eps",device=dev.cur(), restoreConsole=TRUE)
+    dev.new(width=11.69,height=8.27,units="in")
   }
 
   #dev.off()
@@ -74,6 +73,7 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
   plot(area2,col=area2@data$colours,border=0)
 
   fsize=.75
+
 
   # Make Key
   if(scale==TRUE){
