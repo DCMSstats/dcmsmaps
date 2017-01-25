@@ -9,7 +9,7 @@ output: html_document
 
 ##Intro
 
-<<<<<<< HEAD
+
 This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with an Ordnance Survey boundary line shapefile distributed under the Open Government License. It outputs a graphics file of the map.
 
 This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with an Ordnance Survey boundary line shapefile distributed under the Open Government License.
