@@ -11,9 +11,9 @@ output: html_document
 
 <<<<<<< HEAD
 This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with an Ordnance Survey boundary line shapefile distributed under the Open Government License. It outputs a graphics file of the map.
-=======
+
 This package is used to make maps for DCMS statistical publications. It combines input data in a standard format with an Ordnance Survey boundary line shapefile distributed under the Open Government License.
->>>>>>> a4ca2ad335fbab9ea83abf80535953e63bf86479
+
 
 ##Installation
 
@@ -28,19 +28,11 @@ install_github("DCMSstats/dcmsmaps")
 ~~~~
 library(dcmsmaps)
 
-<<<<<<< HEAD
-dcmsmaps(csvfile = "~/Documents/mydata.csv", outfile = "~/Documents/mymap", mincol = "#3CB43C", maxcol = "#5B7DC8", england = FALSE, labels = TRUE, scale = TRUE, pound = FALSE)
-~~~~
-
-* set csvfile to equal the name of your input csv file in the standard format (remember to use double slashes, e.g. `\\`, if you're on Windows)
-* set outfile to be the name of your output map in WMF format (EPS format on Mac). Don't worry about the file extension (e.g. .wmf), this is added for you.
-=======
 dcmsmaps(csvfile = "~/Documents/mydata.csv", outfile = "~/Documents/mymap.eps", mincol = "#3CB43C", maxcol = "#5B7DC8", england = FALSE, labels = TRUE, scale = TRUE, pound = FALSE)
 ~~~~
 
 * set csvfile to equal the name of your input csv file in the standard format (remember to use double slashes, e.g. `\\`, if you're on Windows)
 * set outfile to be the name of your output map in EPS format
->>>>>>> a4ca2ad335fbab9ea83abf80535953e63bf86479
 * `mincol` is the hexidecimal colour to set the lower end of your map's scale
 * `maxcol` is the hexidecimal colour to set the upper end of your map's scale
 * set `england` to `TRUE` if your map is only for England, `FALSE` for the whole UK
@@ -74,11 +66,8 @@ If the names of the UK regions and devoled administrations, and the column headi
 
 ### Using the output in Microsoft Office
 
-<<<<<<< HEAD
-This package produces an WMF (or EPS) file, which is a graphics file that doesn't suffer from pixelation or compression issues when you save your Document or Presentation to PDF. To use it in PowerPoint etc. select Insert > Picture > mymap.eps. Then save it to PDF and it'll look nice no matter how much you zoom in!
-=======
 This package produces an EPS file, which is a graphics file that doesn't suffer from pixelation or compression issues when you save your Document or Presentation to PDF. To use it in PowerPoint etc. select Insert > Picture > mymap.eps. Then save it to PDF and it'll look nice no matter how much you zoom in!
->>>>>>> a4ca2ad335fbab9ea83abf80535953e63bf86479
+
 
 
 

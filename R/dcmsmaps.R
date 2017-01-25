@@ -57,11 +57,8 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
 
   # Open to EPS to plot to
   setEPS()
-<<<<<<< HEAD
-  postscript(paste0(outfile,".eps"),width=11.69,height=8.27)
-=======
   postscript(paste0(outfile,".eps",width=11.69,height=8.27))
->>>>>>> a4ca2ad335fbab9ea83abf80535953e63bf86479
+
   #Different save method is needed for Windows and Mac
   if(Sys.info()['sysname']=="Windows"){
     dev.off()
@@ -194,13 +191,9 @@ dcmsmaps <- function(csvfile='',outfile='',mincol='#3CB43C',maxcol='#5B7DC8',sca
            adj=0,cex=fsize,col="black")
 
       #Northern Ireland
-<<<<<<< HEAD
-      polygon(c(100000,100000),c(500000,440000),border=maincol)
-      text(95000,410000,
-=======
+
       polygon(c(100000,100000),c(500000,420000),border=maincol)
       text(95000,415000,
->>>>>>> a4ca2ad335fbab9ea83abf80535953e63bf86479
            paste0(area2@data$NAME[10],"\n",pounds,formatC(area2@data$mapdata[10],big.mark=',',digits=digitsl,format="f")),
            adj=0,cex=fsize,col="black")
     }
